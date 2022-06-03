@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Contact.class.hpp                                  :+:      :+:    :+:   */
+/*   ContactClass.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtournay <mtournay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 14:26:03 by mtournay          #+#    #+#             */
-/*   Updated: 2022/06/01 17:41:26 by mtournay         ###   ########.fr       */
+/*   Updated: 2022/06/03 17:48:12 by mtournay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <string>
 
 class Contact
 {
@@ -22,21 +23,23 @@ class Contact
     	Contact(void);
     	~Contact(void);
 		
-		std::string get_first(void) const;
-		std::string get_last(void) const;
-		std::string get_darkest(void) const;
-		int		get_number(void) const;
 
-		void	set_first(std::string f);
-		void 	set_last(std::string l);
-		void 	set_darkest(std::string d);
-		void	set_number(int n);
+		void		setFirst(std::string f);
+		void		setLast(std::string l);
+		void		setDarkest(std::string d);
+		void		setNumber(std::string n);
+		void 		printAll(void)	const;
+		
+		std::string getFirst(void) const;
+		std::string getLast(void) const;
+		std::string getDarkest(void) const;
+		std::string	getNumber(void) const;
 
 	private:
-    	std::string _first_name;
-    	std::string _last_name;
-    	std::string _darkest_secret;
-    	int     _phone_n;
+    	std::string _firstName;
+    	std::string _lastName;
+    	std::string _darkestSecret;
+    	std::string	_phoneNumber;
 };
 
 #endif

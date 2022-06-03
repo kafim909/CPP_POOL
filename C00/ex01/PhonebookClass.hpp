@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Phonebook.class.hpp                                :+:      :+:    :+:   */
+/*   PhonebookClass.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtournay <mtournay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 14:24:54 by mtournay          #+#    #+#             */
-/*   Updated: 2022/06/01 17:41:23 by mtournay         ###   ########.fr       */
+/*   Updated: 2022/06/03 17:54:01 by mtournay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_CLASS_HPP
 # define PHONEBOOK_CLASS_HPP
 
-# include "Contact.class.hpp"
+# include "ContactClass.hpp"
 
 class Phonebook
 {
@@ -21,8 +21,19 @@ class Phonebook
 
     	Phonebook(void);
 		~Phonebook(void);
+		void	addContact(int index);
+		void	searchContact(int count) const;
+		void	exit(void) const;
 
-	Contact contact[8];
+
+	private:
+
+		Contact _Contact[8];
+		void	printInfo(int index) const;
+		void	printAll(int count) const;
+		int		findContact(std::string name, int count) const;
+		void	Phonebook::truncate(std::string *str);
+
 };
 
 #endif
