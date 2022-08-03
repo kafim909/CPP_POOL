@@ -6,7 +6,7 @@
 #    By: mtournay <mtournay@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/01 14:56:34 by mtournay          #+#    #+#              #
-#    Updated: 2022/06/01 17:21:47 by mtournay         ###   ########.fr        #
+#    Updated: 2022/06/27 15:31:39 by mtournay         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ OBJS		=	$(SRCS:%.cpp=%.o)
 NAME		=	Phonebook
 
 CC					=	clang++
-CFLAGS				=	-Wall -Wextra -Werror\
+CFLAGS				=	-Wall -Wextra -Werror -std=c++s98\
 
 all:		$(NAME)
 

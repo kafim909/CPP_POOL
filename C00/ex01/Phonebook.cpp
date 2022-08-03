@@ -6,7 +6,7 @@
 /*   By: mtournay <mtournay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 14:31:23 by mtournay          #+#    #+#             */
-/*   Updated: 2022/06/03 17:54:02 by mtournay         ###   ########.fr       */
+/*   Updated: 2022/07/25 12:04:40 by mtournay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,19 +66,40 @@ void	Phonebook::printInfo(int index) const
 	std::cout << _Contact[index].getNumber() << std::endl;	
 }
 
+std::string	Phonebook::resizeString(std::string str) const
+{
+	if (str.length() > 10)
+	{
+		str.resize(10);
+		str.back() = '.';
+	}
+	return(str);
+}
+
 void	Phonebook::printAll(int count) const
 {
 	int	i;
 	char dot;
+	std::string tempFirst;
+	std::string tempLast;
+	std::string tempDarkest;
+	std::string tempNumber;
 
 	i = -1;
 	while (++i < count)
 	{
-		
-		std::cout << std::setw(10) << _Contact[i].getFirst().resize(9) << "|";
-		std::cout << std::setw(10) << _Contact[i].getLast().resize(9) << "|";
-		std::cout << std::setw(10) << _Contact[i].getDarkest().resize(9) << "|";
-		std::cout << std::setw(10) << _Contact[i].getNumber().resize(9) << "|" << std::endl;	
+		tempFirst = resizeString(_Contact[i].getFirst());
+		tempLast = resizeString(_Contact[i].getLast());
+		tempDarkest = resizeString(_Contact[i].getDarkest());
+		tempNumber = resizeString(_Contact[i].getNumber());
+		std::cout << std::setfill (' ') << std::setw (10);
+		std::cout << tempFirst << "|";
+		std::cout << std::setfill (' ') << std::setw (10);
+		std::cout << tempLast << "|";
+		std::cout << std::setfill (' ') << std::setw (10);
+		std::cout << tempDarkest << "|";
+		std::cout << std::setfill (' ') << std::setw (10);
+		std::cout << tempNumber << "|" << std::endl;	
 	}
 }
 

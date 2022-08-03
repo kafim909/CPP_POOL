@@ -1,0 +1,6 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory `/Users/mtournay/Desktop/CPP_POOL/C01'
+make: Leaving directory `/Users/mtournay/Desktop/CPP_POOL/C01'
+ 
+make: *** No targets specified and no makefile found.  Stop.
+

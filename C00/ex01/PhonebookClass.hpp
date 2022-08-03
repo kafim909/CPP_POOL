@@ -6,7 +6,7 @@
 /*   By: mtournay <mtournay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 14:24:54 by mtournay          #+#    #+#             */
-/*   Updated: 2022/06/03 17:54:01 by mtournay         ###   ########.fr       */
+/*   Updated: 2022/07/25 12:02:56 by mtournay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ class Phonebook
 	private:
 
 		Contact _Contact[8];
-		void	printInfo(int index) const;
-		void	printAll(int count) const;
-		int		findContact(std::string name, int count) const;
-		void	Phonebook::truncate(std::string *str);
+		void		printInfo(int index) const;
+		void		printAll(int count) const;
+		int			findContact(std::string name, int count) const;
+		std::string		resizeString(std::string str) const;
 
 };
 
