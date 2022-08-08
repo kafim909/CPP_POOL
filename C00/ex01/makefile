@@ -15,8 +15,8 @@ OBJS		=	$(SRCS:%.cpp=%.o)
 
 NAME		=	Phonebook
 
-CC					=	clang++
-CFLAGS				=	-Wall -Wextra -Werror -std=c++s98\
+CC					=	g++
+CFLAGS				=	-Wall -Wextra -Werror -std=c++98\
 
 all:		$(NAME)
 

@@ -1,7 +1,7 @@
-SRCS		=	main.cpp HumanA.Class.cpp HumanB.Class.cpp Weapon.Class.cpp
+SRCS		=	main.cpp Harl.Class.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
-NAME		=	Combat
+NAME		=	Harl
 
 CC					=	g++
 CFLAGS				=	-Wall -Wextra -Werror -std=c++98\
