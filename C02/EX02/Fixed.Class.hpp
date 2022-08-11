@@ -34,10 +34,10 @@ class Fixed
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
 
-        Fixed static min(Fixed &op1, Fixed &op2);
-        Fixed static min(Fixed const &op1, Fixed const &op2);
-        Fixed static max(Fixed &op1, Fixed &op2);
-        Fixed static max(Fixed const &op1, Fixed const &op2);
+        const static Fixed min(Fixed const &op1, Fixed const &op2);
+        const static Fixed max(Fixed const &op1, Fixed const &op2);
+        static Fixed min(Fixed &op1, Fixed &op2);
+        static Fixed max(Fixed &op1, Fixed &op2);
 
     private:
 
