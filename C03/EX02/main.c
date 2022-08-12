@@ -1,5 +1,7 @@
 #include "ClapTrap.Class.hpp"
 #include "ScavTrap.Class.hpp"
+#include "FragTrap.Class.hpp"
+
 
 
 int main()
