@@ -6,10 +6,11 @@
 # include "ClapTrap.Class.hpp"
 
 
-class FragTrap : public ClapTrap
+class FragTrap : virtual public ClapTrap
 {
     public:
 
+        FragTrap();
         FragTrap(std::string name);
         FragTrap(const FragTrap&);
         FragTrap &operator=(const FragTrap& op);

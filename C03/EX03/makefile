@@ -1,10 +1,10 @@
-SRCS		=	main.cpp ClapTrap.Class.cpp ScavTrap.Class.cpp FragTrap.Class.cpp
+SRCS		=	main.cpp ClapTrap.Class.cpp ScavTrap.Class.cpp FragTrap.Class.cpp DiamondTrap.Class.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
-NAME		=	FragTrap
+NAME		=	DiamondTrap
 
 CC					=	g++
-CFLAGS				=	-Wall -Wextra -Werror -std=c++98\
+CFLAGS				=	-Wshadow -Wall -Wextra -Werror -std=c++98\
 
 all:		$(NAME)
 

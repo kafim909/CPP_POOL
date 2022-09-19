@@ -8,29 +8,19 @@ int main()
 {
     ClapTrap roger = ClapTrap("roger");
     ScavTrap joe = ScavTrap("joe");
+    FragTrap steve = FragTrap("steve");
 
     roger.attack("Joe");
     joe.takeDamage(roger.getAttackDamage());
     roger.attack("Joe");
     joe.takeDamage(roger.getAttackDamage());
-    roger.attack("Joe");
-    joe.takeDamage(roger.getAttackDamage());
-    roger.attack("Joe");
-    joe.takeDamage(roger.getAttackDamage());
-    roger.attack("Joe");
-    joe.takeDamage(roger.getAttackDamage());
-    roger.attack("Joe");
-    joe.takeDamage(roger.getAttackDamage());
-    joe.guardGate();
+    steve.highFiveGuys();
 
-    joe.beRepaired(5);
-    joe.beRepaired(5);
-    joe.beRepaired(5);
-    joe.beRepaired(5);
+    steve.attack("roger");
+    roger.takeDamage(steve.getAttackDamage());
+    joe.attack("steve");
+    steve.takeDamage(joe.getAttackDamage());
 
-    roger.attack("Joe");
-    joe.takeDamage(roger.getAttackDamage());
-    joe.attack("roger");
-    roger.takeDamage(joe.getAttackDamage());
+
 
 }
