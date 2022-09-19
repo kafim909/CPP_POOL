@@ -1,10 +1,10 @@
-SRCS		=	main.cpp newZombie.cpp randomChump.cpp zombie.Class.cpp
+SRCS		=	main.cpp Bureaucrat.Class.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
-NAME		=	Zombies
+NAME		=	Bureaucrat
 
-CC					=	clang++
-CFLAGS				=	-Wall -Wextra -Werror -fsanitize=address -std=c++s98\
+CC					=	g++
+CFLAGS				=	-Wshadow -Wall -Wextra -Werror -fsanitize=address -std=c++98\
 
 all:		$(NAME)
 
