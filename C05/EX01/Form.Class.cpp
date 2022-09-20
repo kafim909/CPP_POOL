@@ -18,6 +18,7 @@ Form::Form(const Form &copy) : _name(getName()), _gradeToSign(getGradeToSign()),
 Form &Form::operator=(const Form& op)
 {
 	this->_isSigned = op._isSigned;
+	return (*this);
 }
 
 Form::~Form()
@@ -25,14 +26,22 @@ Form::~Form()
     std::cout << "Form " << _name << " destroyed"<< std::endl;
 }
 
-Bureaucrat::GradeTooLowException::GradeTooLowException()
+Form::GradeTooLowException::GradeTooLowException()
 {
 	std::cout << "FORM : Grade too low" << std::endl;
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException()
+Form::GradeTooLowException::~GradeTooLowException() throw()
 {
-	std::cout << " FORM : Grade too high" << std::endl;
+}
+
+Form::GradeTooHighException::GradeTooHighException()
+{
+	std::cout << "FORM : Grade too high" << std::endl;
+}
+
+Form::GradeTooHighException::~GradeTooHighException() throw()
+{
 }
 
 std::string const Form::getName()
@@ -59,6 +68,7 @@ void	Form::beSigned(Bureaucrat &tryingToSign)
 {
 	if (tryingToSign.getGrade() > _gradeToSign)
 		throw GradeTooLowException();
+	_isSigned = true;
 }
 
 std::ostream &operator<<(std::ostream &out, Form &form)
@@ -68,7 +78,8 @@ std::ostream &operator<<(std::ostream &out, Form &form)
 	out << "Grade requested to execute the form : " << form.getGradeToExecute() << std::endl;
 	out << "Is form signed?" << std::endl;
 	if (form.isSigned())
-		out << "            YES" << std::endl;
+		out << "               YES" << std::endl;
 	else
-		out << "            NO" << std::endl;
+		out << "               NO" << std::endl;
+	return (out);
 }

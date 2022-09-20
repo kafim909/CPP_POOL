@@ -30,7 +30,7 @@ std::string Bureaucrat::getName() const
     return (_name);
 }
 
-int Bureaucrat::getGrade()
+const int Bureaucrat::getGrade() const
 {
     return (_grade);
 }
@@ -73,7 +73,7 @@ void    Bureaucrat::decrement()
             throw GradeTooLowException();
 }
 
-void   Bureaucrat::signForm(Form &form)
+void   Bureaucrat::signForm(AForm &form)
 {
     if (form.isSigned())
         std::cout << *this << "signed " << form.getName() << std::endl;

@@ -1,100 +1,75 @@
 #include "Bureaucrat.Class.hpp"
+#include "Form.Class.hpp"
 
-void    testNormalGrade()
+
+void    formBasicUnitTest()
 {
-    std::cout << "test normal grade" << std::endl;
+    std::cout << "\033[1;31mFORM CLASS : Basic unit test.....\033[0m" << std::endl;
     try
     {
-        Bureaucrat jean("jean", 10);
-        std::cout << jean << std::endl;
+        Form formGradeTooHigh("formGradeTooHigh", 0, 0);        
     }
-    catch(Bureaucrat::GradeTooHighException)
+    catch(Form::GradeTooHighException)
     {
+        std::cout << "Failed to construct object, grade too high" << std::endl;
     }
-    catch(Bureaucrat::GradeTooLowException)
+    catch(Form::GradeTooLowException)
     {
+        std::cout << "Failed to construct object, grade too low" << std::endl;
     }
-    std::cout << std::endl;
-}
-
-void    testGradeTooHigh()
-{
-    std::cout << "test Grade Too High" << std::endl;
     try
     {
-        Bureaucrat chris("Chris", 0);
-        std::cout << chris << std::endl;
+        Form formGradeTooLow("formGradeTooLow", 151, 151);        
     }
-    catch(Bureaucrat::GradeTooHighException)
+        catch(Form::GradeTooHighException)
     {
+        std::cout << "Failed to construct object, grade too high" << std::endl;
     }
-    catch(Bureaucrat::GradeTooLowException)
+    catch(Form::GradeTooLowException)
     {
+        std::cout << "Failed to construct object, grade too low" << std::endl;
     }
-    std::cout << std::endl;
+
+    Form BasicUnitTest("BasicUnitTest", 45, 18);
+    std::cout << BasicUnitTest << std::endl;
 }
 
-void    testGradeTooLow()
+void    testBureaucratFailedToSign(Bureaucrat &steve, Form &article1)
 {
-    std::cout << "test grade too low" << std::endl;
+    std::cout << "\033[1;31mBUREAUCRAT : Grade too low to sign test.....\033[0m" << std::endl;
     try
     {
-        Bureaucrat max("max", 155);
-        std::cout << max << std::endl;
+        article1.beSigned(steve);
     }
-    catch(Bureaucrat::GradeTooHighException)
+    catch(Form::GradeTooLowException)
     {
+        std::cout << "Grade too low to sign form" << std::endl;
     }
-    catch(Bureaucrat::GradeTooLowException)
-    {
-    }
-    std::cout << std::endl;
+    steve.signForm(article1);
 }
 
-void    testIncrement()
+void    testBureaucratSuccessToSign(Bureaucrat &steve, Form &article1)
 {
-    std::cout << "test increment" << std::endl;
-    Bureaucrat yves("yves", 1);
-    std::cout << yves << std::endl;
+    std::cout << "\033[1;31mBUREAUCRAT : Grade good to sign test.....\033[0m" << std::endl;
+    std::cout << steve << article1;
     try
     {
-        std::cout << "trying increment" << std::endl;
-        yves.increment();
+        article1.beSigned(steve);
     }
-    catch(Bureaucrat::GradeTooHighException)
+    catch(Form::GradeTooLowException)
     {
+        std::cout << "Grade to low to sign form" << std::endl;
     }
-    catch(Bureaucrat::GradeTooLowException)
-    {
-    }
-    std::cout << std::endl;
+    steve.signForm(article1);
+    std::cout << article1;
 }
-
-void    testDecrement()
-{
-    std::cout << "test decrement" << std::endl;
-    Bureaucrat Carl("Carl", 150);
-    std::cout << Carl << std::endl;
-    try
-    {
-        std::cout << "trying decrement" << std::endl;
-        Carl.decrement();
-    }
-    catch(Bureaucrat::GradeTooHighException)
-    {
-    }
-    catch(Bureaucrat::GradeTooLowException)
-    {
-    }
-    std::cout << std::endl;
-}
-
 
 int main()
 {
-    testNormalGrade();
-    testGradeTooHigh();
-    testGradeTooLow();
-    testIncrement();
-    testDecrement();
+    formBasicUnitTest();
+    Bureaucrat steve("steve", 100);
+    Form article1("article1",99, 20);
+    testBureaucratFailedToSign(steve, article1);
+    steve.increment();
+    testBureaucratSuccessToSign(steve, article1);
 }
