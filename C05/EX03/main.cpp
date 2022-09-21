@@ -2,6 +2,7 @@
 #include "ShrubberyCreationForm.Class.hpp"
 #include "PresidentialPardonForm.Class.hpp"
 #include "RobotomyRequestForm.Class.hpp"
+#include "Intern.Class.hpp"
 
 void    testShruberryForm()
 {
@@ -83,20 +84,27 @@ void    testOneOnTworobotomyform()
 
 int main()
 {
-    std::cout << "\033[1;31mBEGIN test Shrubbery Form.....\033[0m" << std::endl;
-    testShruberryForm();
-    std::cout << "\033[1;31mEND test Shrubbery Form.....\033[0m" << std::endl << std::endl ;
+    // std::cout << "\033[1;31mBEGIN test Shrubbery Form.....\033[0m" << std::endl;
+    // testShruberryForm();
+    // std::cout << "\033[1;31mEND test Shrubbery Form.....\033[0m" << std::endl << std::endl ;
 
-    std::cout << "\033[1;31mBEGIN test robotomy Form.....\033[0m" << std::endl;
-    testRobotomyform();
-    std::cout << "\033[1;31mEND test robotomy Form.....\033[0m" << std::endl << std::endl ;
+    // std::cout << "\033[1;31mBEGIN test robotomy Form.....\033[0m" << std::endl;
+    // testRobotomyform();
+    // std::cout << "\033[1;31mEND test robotomy Form.....\033[0m" << std::endl << std::endl ;
 
-    std::cout << "\033[1;31mBEGIN test pardon Form.....\033[0m" << std::endl;
-    testPresidentialPardonForm();
-    std::cout <<  "\033[1;31mEND test pardon Form.....\033[0m" << std::endl << std::endl ;
+    // std::cout << "\033[1;31mBEGIN test pardon Form.....\033[0m" << std::endl;
+    // testPresidentialPardonForm();
+    // std::cout <<  "\033[1;31mEND test pardon Form.....\033[0m" << std::endl << std::endl ;
 
-    std::cout << std::endl <<"\033[1;31mBEGIN test robotomy request form probability.....\033[0m" << std::endl;
-    testOneOnTworobotomyform();
-    std::cout <<"\033[1;31mEND test robotomy request form probability.....\033[0m" << std::endl;
+    // std::cout << std::endl <<"\033[1;31mBEGIN test robotomy request form probability.....\033[0m" << std::endl;
+    // testOneOnTworobotomyform();
+    // std::cout <<"\033[1;31mEND test robotomy request form probability.....\033[0m" << std::endl;
 
+    Intern someRandomIntern;
+    AForm* rrf;
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    Bureaucrat test("Bureaucrat test", 1);
+    test.signForm(*rrf);
+    test.executeForm(*rrf);
+    delete rrf;
 }

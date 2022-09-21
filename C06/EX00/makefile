@@ -1,7 +1,7 @@
-SRCS		=	main.cpp Bureaucrat.Class.cpp AForm.Class.cpp ShrubberyCreationForm.Class.cpp PresidentialPardonForm.Class.cpp RobotomyRequestForm.Class.cpp
+SRCS		=	main.cpp Convert.Class.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
-NAME		=	Bureaucrat
+NAME		=	Convert
 
 CC					=	g++
 CFLAGS				=	-Wshadow -Wall -Wextra -Werror -fsanitize=address -std=c++98\
