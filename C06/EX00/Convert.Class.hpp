@@ -3,6 +3,7 @@
 
 # pragma once
 # include <iostream>
+# include <limits>
 
 #define RESET   "\033[0m"
 #define BLACK   "\033[30m"      /* Black */
@@ -14,13 +15,13 @@
 #define CYAN    "\033[36m"      /* Cyan */
 #define WHITE   "\033[37m"      /* White */
 
+
 class Convert
 {
 
     public:
 
         Convert();
-        Convert(char *inputValue);
         Convert(const Convert &copy);
         Convert &operator=(const Convert& op);
         ~Convert();
@@ -32,15 +33,15 @@ class Convert
 				virtual ~errors() throw();
 		};
 
-        const std::string 	getInputValue();
-		void				typeConvertion();
-		void				ConvertToInt();
+        const int           getInputType(const char *input);
+		void				ConvertToInt(const char *input);
+        void                ConvertToChar(const char *input);
+        void                ConvertToFloat(const char *input);
+        void                ConvertToDouble(const char *input);
+        void                printNone();
 
     private:
-        const char*			_inputValue;
-        int					_convertedToInt;
-        float				_convertedToFloat;
-		double				_convertedToDouble;
+
 
 };
 
