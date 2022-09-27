@@ -1,17 +1,17 @@
 #include "ShrubberyCreationForm.Class.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name, std::string target) : AForm(name, target, "Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(){}
+
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, "Shrubbery", 145, 137)
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy.getName() ,copy.getTarget() ,"Shrubbery", 145, 137)
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : AForm(copy.getTarget() ,"Shrubbery", 145, 137)
 {
-    *this = copy;
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm& op)
 {
-    *this = op;
     return (*this);
 }
 
@@ -23,10 +23,16 @@ void   ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
     if (!isSigned())
         throw (GradeTooLowException("Unsigned form cannot be executed"));
-    std::cout << executor.getName() << " is trying to execute form : " << getName() << std::endl;
+    std::cout << executor.getName() << " is trying to execute form : " << getType() << std::endl;
     if (executor.getGrade() > getGradeToExecute())
         throw (GradeTooLowException("Grade to low to execute form"));
-    std::ofstream outfile(getTarget() + "_shrubbery");
+    std::fstream outfile;
+    outfile.open(getTarget() + "_shrubbery", std::ios::out);
+    if (!outfile.is_open())
+    {
+        std::cout << "failed to open file" << std::endl;
+        return ;
+    }
     outfile << "      @                 @           " << std::endl;
     outfile << "     @@@               @@@          " << std::endl;
     outfile << "    @@@@@             @@@@@         " << std::endl;
@@ -35,4 +41,5 @@ void   ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     outfile << "      |                 |            " << std::endl;
     outfile << "      |                 |            " << std::endl;
     outfile << "      |                 |            " << std::endl;
+    outfile.close();
 }

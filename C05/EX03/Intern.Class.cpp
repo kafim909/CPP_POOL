@@ -45,17 +45,17 @@ AForm *Intern::makeForm(std::string formName, std::string formTarget)
 AForm *Intern::makeFormShrubberyCreation(std::string target)
 {
     std::cout << "\033[1m\033[34m Intern is creating a Shrubbery form\033[0m" << std::endl;
-    return (new ShrubberyCreationForm("shrubbery", target));
+    return (new ShrubberyCreationForm(target));
 }
 
 AForm *Intern::makeFormRobotomyrequest(std::string target)
 {
     std::cout << "\033[1m\033[34m Intern is creating a Robotomy Request form\033[0m" << std::endl;
-    return (new RobotomyRequestForm("robotomy request", target));
+    return (new RobotomyRequestForm(target));
 }
 
 AForm *Intern::makeFormPresidentialPardon(std::string target)
 {
     std::cout << "\033[1m\033[34m Intern is creating a Presidential Pardon form\033[0m" << std::endl;
-    return (new PresidentialPardonForm("presidential pardon", target));
+    return (new PresidentialPardonForm(target));
 }

@@ -1,12 +1,15 @@
 #include "RobotomyRequestForm.Class.hpp"
+RobotomyRequestForm::RobotomyRequestForm()
+{
 
-RobotomyRequestForm::RobotomyRequestForm(std::string name, std::string target) : AForm(name, target, "RobotomyRequest", 72, 45)
+}
+
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, "RobotomyRequest", 72, 45)
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(getName(), getTarget(), "RobotomyRequest", 72, 45)
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &copy) : AForm(copy.getTarget(), "RobotomyRequest", 72, 45)
 {
-    *this = copy;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm& op)
@@ -23,7 +26,7 @@ void   RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if (!isSigned())
         throw (GradeTooLowException("Unsigned form cannot be executed"));
-    std::cout << executor.getName() << " is trying to execute form : " << getName() << std::endl;
+    std::cout << executor.getName() << " is trying to execute form : " << getType() << std::endl;
     if (executor.getGrade() > getGradeToExecute())
         throw (GradeTooLowException("Grade to low to execute form"));
     std::cout << "!!!!!!BRUITS DE PERCEUSE!!!!!!" << std::endl;

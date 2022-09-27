@@ -22,7 +22,6 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat& op)
 
 Bureaucrat::~Bureaucrat()
 {
-    std::cout << _name << " destructor called" << std::endl;
 }
 
 std::string Bureaucrat::getName() const

@@ -89,6 +89,15 @@ void    testDecrement()
     std::cout << std::endl;
 }
 
+void    testCopy()
+{
+    Bureaucrat jean("jean", 50);
+    Bureaucrat max(jean);
+
+    std::cout << jean;
+    std::cout << max;
+}
+
 
 int main()
 {
@@ -97,4 +106,5 @@ int main()
     testGradeTooLow();
     testIncrement();
     testDecrement();
+    testCopy();
 }

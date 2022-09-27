@@ -64,6 +64,15 @@ void    testBureaucratSuccessToSign(Bureaucrat &steve, Form &article1)
     std::cout << article1;
 }
 
+void    testDeepCopy()
+{
+    std::cout << "\033[1;31mForm : Deep copy test.....\033[0m" << std::endl;
+    Form test("test", 20, 20);
+    Form test1(test);
+    std::cout << test;
+    std::cout << test1;
+}
+
 int main()
 {
     formBasicUnitTest();
@@ -72,4 +81,5 @@ int main()
     testBureaucratFailedToSign(steve, article1);
     steve.increment();
     testBureaucratSuccessToSign(steve, article1);
+    testDeepCopy();
 }

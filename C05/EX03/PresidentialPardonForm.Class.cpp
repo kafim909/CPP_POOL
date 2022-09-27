@@ -1,17 +1,19 @@
 #include "PresidentialPardonForm.Class.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(std::string name, std::string target) : AForm(name, target, "PresidentialPardon", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm()
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm(getName(), getTarget(), "PresidentialPardon", 25, 5)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(target, "PresidentialPardon", 25, 5)
 {
-    *this = copy;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &copy) : AForm(copy.getTarget(), "PresidentialPardon", 25, 5)
+{
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm& op)
 {
-    *this = op;
     return (*this);
 }
 
@@ -23,7 +25,7 @@ void   PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
     if (!isSigned())
         throw (GradeTooLowException("Unsigned form cannot be executed"));
-    std::cout << executor.getName() << " is trying to execute form : " << getName() << std::endl;
+    std::cout << executor.getName() << " is trying to execute form : " << getType() << std::endl;
     if (executor.getGrade() > getGradeToExecute())
         throw (GradeTooLowException("Grade too low to execute form"));
     std::cout << getTarget() << " has been forgiven by Zaphod Beeblebrox" << std::endl;

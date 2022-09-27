@@ -9,9 +9,9 @@ void    testShruberryForm()
     Bureaucrat midLevel("midLevel", 72);
     Bureaucrat highLevel("highLevel", 1);
 
-    ShrubberyCreationForm shrubbery1 ("shrubbery1", "Garden1");
-    ShrubberyCreationForm shrubbery2 ("shrubbery2", "Garden2");
-    ShrubberyCreationForm shrubbery3 ("shrubbery3", "Garden3");
+    ShrubberyCreationForm shrubbery1 ("Garden1");
+    ShrubberyCreationForm shrubbery2 ("Garden2");
+    ShrubberyCreationForm shrubbery3 ("Garden3");
 
     std::cout << shrubbery1 << lowLevel;
     lowLevel.signForm(shrubbery1);
@@ -30,9 +30,9 @@ void    testRobotomyform()
     Bureaucrat midLevel("midLevel", 72);
     Bureaucrat highLevel("highLevel", 1);
 
-    RobotomyRequestForm robotomy1 ("robotomy1", "robot1");
-    RobotomyRequestForm robotomy2 ("robotomy2", "robot2");
-    RobotomyRequestForm robotomy3 ("robotomy3", "robot3");
+    RobotomyRequestForm robotomy1 ("robot1");
+    RobotomyRequestForm robotomy2 ("robot2");
+    RobotomyRequestForm robotomy3 ("robot3");
 
     std::cout << robotomy1 << lowLevel;
     lowLevel.signForm(robotomy1);
@@ -51,9 +51,9 @@ void    testPresidentialPardonForm()
     Bureaucrat midLevel("midLevel", 72);
     Bureaucrat highLevel("highLevel", 1);
 
-    PresidentialPardonForm pardon1 ("pardon1", "thief1");
-    PresidentialPardonForm pardon2 ("pardon2", "thief2");
-    PresidentialPardonForm pardon3 ("pardon3", "thief3");
+    PresidentialPardonForm pardon1 ("thief1");
+    PresidentialPardonForm pardon2 ("thief2");
+    PresidentialPardonForm pardon3 ("thief3");
 
     std::cout << pardon1 << lowLevel;    
     lowLevel.signForm(pardon1);
@@ -72,13 +72,38 @@ void    testOneOnTworobotomyform()
     for (int i = 0; i < 50; i++)
     {
         Bureaucrat test("Bureaucrat test", 1);
-        RobotomyRequestForm testForm("testForm", "robot");
+        RobotomyRequestForm testForm("robot");
         test.signForm(testForm);
         test.executeForm(testForm);
         test.~Bureaucrat();
         testForm.~RobotomyRequestForm();
     }
 
+}
+
+void	testDeepCopy()
+{
+	RobotomyRequestForm testR("target1");
+	RobotomyRequestForm testR2(testR);
+	std::cout << testR;
+	std::cout << testR2;
+	ShrubberyCreationForm testSh("Target1");
+	ShrubberyCreationForm testSh2(testSh);
+	std::cout << testSh;
+	std::cout << testSh2;
+	PresidentialPardonForm testPresi("target1");
+	PresidentialPardonForm testPresi2(testPresi);
+	std::cout << testPresi;
+	std::cout << testPresi2;
+	Bureaucrat max("max", 50);
+	Bureaucrat jean(max);
+	std::cout << max;
+	std::cout << jean;
+	max.decrement();
+	jean.decrement();
+	jean.decrement();
+	std::cout << max;
+	std::cout << jean;
 }
 
 int main()
@@ -99,4 +124,7 @@ int main()
     testOneOnTworobotomyform();
     std::cout <<"\033[1;31mEND test robotomy request form probability.....\033[0m" << std::endl;
 
+    std::cout << std::endl <<"\033[1;31mBEGIN test deep copy.....\033[0m" << std::endl;
+    testDeepCopy();
+    std::cout <<"\033[1;31mEND test deep copy.....\033[0m" << std::endl;
 }

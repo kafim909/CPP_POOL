@@ -28,10 +28,10 @@ class Form
 				virtual ~GradeTooLowException() throw();
 		};
 
-		std::string	const	getName();
+		std::string	const	getName() const;
 		bool				isSigned();
-		const int			getGradeToSign();
-		const int			getGradeToExecute();
+		const int			getGradeToSign() const;
+		const int			getGradeToExecute() const;
 		
 		void				beSigned(Bureaucrat &tryingToSign);
 		void				signForm();

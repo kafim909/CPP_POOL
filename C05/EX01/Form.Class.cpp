@@ -10,9 +10,8 @@ Form::Form(std::string name, int gradeToSign, int gradeToExecute) : _name(name),
     std::cout << "Form " << _name << " created"<< std::endl;
 }
 
-Form::Form(const Form &copy) : _name(getName()), _gradeToSign(getGradeToSign()), _gradeToExecute(getGradeToExecute())
+Form::Form(const Form &copy) : _name(copy.getName()), _gradeToSign(copy.getGradeToSign()), _gradeToExecute(copy.getGradeToExecute())
 {
-    *this = copy;
 }
 
 Form &Form::operator=(const Form& op)
@@ -23,7 +22,6 @@ Form &Form::operator=(const Form& op)
 
 Form::~Form()
 {
-    std::cout << "Form " << _name << " destroyed"<< std::endl;
 }
 
 Form::GradeTooLowException::GradeTooLowException()
@@ -44,7 +42,7 @@ Form::GradeTooHighException::~GradeTooHighException() throw()
 {
 }
 
-std::string const Form::getName()
+std::string const Form::getName() const
 {
     return (_name);
 }
@@ -54,12 +52,12 @@ bool	Form::isSigned()
 	return (_isSigned);
 }
 
-const int Form::getGradeToSign()
+const int Form::getGradeToSign() const
 {
 	return (_gradeToSign);
 }
 
-const int Form::getGradeToExecute()
+const int Form::getGradeToExecute() const
 {
 	return (_gradeToExecute);
 }

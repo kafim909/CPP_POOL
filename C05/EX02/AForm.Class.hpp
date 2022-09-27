@@ -12,7 +12,7 @@ class AForm
     public:
 
 		AForm();
-        AForm(std::string name, std::string target, std::string type, int gradeToSign, int gradeToExecute);
+        AForm(std::string target, std::string type, int gradeToSign, int gradeToExecute);
         AForm(const AForm&);
         AForm &operator=(const AForm& op);
         virtual ~AForm();
@@ -31,7 +31,7 @@ class AForm
 				virtual ~GradeTooLowException() throw();
 		};
 
-		std::string	const	getName() const;
+
 		std::string const	getTarget() const;
 		std::string const	getType() const;
 		bool				isSigned() const;
@@ -46,7 +46,6 @@ class AForm
     private:
 		std::string 		_target;
 		const std::string	_type;
-        const std::string   _name;
         bool                _isSigned;
         const int			_gradeToSign;
         const int			_gradeToExecute;

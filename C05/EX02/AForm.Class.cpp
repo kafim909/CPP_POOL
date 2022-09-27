@@ -4,7 +4,7 @@ AForm::AForm() : _gradeToExecute(0), _gradeToSign(0)
 {
 }
 
-AForm::AForm(std::string name, std::string target, std::string type, int gradeToSign, int gradeToExecute) : _name(name), _target(target), _type(type), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
+AForm::AForm(std::string target, std::string type, int gradeToSign, int gradeToExecute) : _target(target), _type(type), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
     _isSigned = false;
 	if (_gradeToExecute > 150 || _gradeToSign > 150)
@@ -13,7 +13,7 @@ AForm::AForm(std::string name, std::string target, std::string type, int gradeTo
         throw GradeTooHighException();
 }
 
-AForm::AForm(const AForm &copy) : _name(getName()), _gradeToSign(getGradeToSign()), _gradeToExecute(getGradeToExecute())
+AForm::AForm(const AForm &copy) : _gradeToSign(copy.getGradeToSign()), _gradeToExecute(copy.getGradeToExecute())
 {
     *this = copy;
 }
@@ -47,11 +47,6 @@ AForm::GradeTooHighException::GradeTooHighException()
 
 AForm::GradeTooHighException::~GradeTooHighException() throw()
 {
-}
-
-std::string const AForm::getName() const
-{
-    return (_name);
 }
 
 std::string const AForm::getTarget() const
@@ -88,7 +83,7 @@ void	AForm::beSigned(Bureaucrat &tryingToSign)
 
 std::ostream &operator<<(std::ostream &out, AForm &form)
 {
-	out << std::endl << "\033[32m" << form.getName() << " Form, of type " << form.getType() << " : " << std::endl;
+	out << std::endl << "\033[32m" << form.getType() << " : " << std::endl;
 	out << "Grade requested to sign the form : " << form.getGradeToSign() << std::endl;
 	out << "Grade requested to execute the form : " << form.getGradeToExecute() << std::endl;
 	out << "Is form signed?" << std::endl;

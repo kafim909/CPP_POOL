@@ -15,8 +15,8 @@ clean:
 				@rm -f ${OBJS}
 
 fclean:		clean
-				@rm -f $(NAME)
+				@rm -f $(NAME) Garden2_shrubbery Garden3_shrubbery
 
-re:			fclean all
+re:			fclean all 
 
 .PHONY:		all clean fclean re
