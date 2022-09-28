@@ -15,17 +15,38 @@ int main(int argc, char **argv)
 			convert.printNone();
 			break;
 		case (1) :
-			convert.ConvertToInt(argv[1]);
+			try
+			{
+				convert.ConvertToInt(argv[1]);
+			}
+			catch(const std::exception& e)
+			{
+				std::cout << RED << "Error : Trying to pass an overflowed Int as argument, cannot make further conversion" << RESET << std::endl;
+			}
 			break;
-		// case (2) :
-		// 	convert.ConvertToFloat(argv[1]);
-		// 	break;
-		// case (3) :
-		// 	convert.ConvertToDouble(argv[1]);
-		// 	break;
-		// case (4) :
-		// 	convert.ConvertToChar(argv[1]);
-		// 	break;
+		case (2) :
+			try
+			{
+				convert.ConvertToFloat(argv[1]);
+			}
+			catch(const std::exception& e)
+			{
+				std::cout << RED << "Error : Trying to pass an overflowed Float as argument, cannot make further conversion" << RESET << std::endl;
+			}
+			break;
+		case (3) :
+			try
+			{
+				convert.ConvertToDouble(argv[1]);
+			}
+			catch(const std::exception& e)
+			{
+				std::cout << RED << "Error : Trying to pass an overflowed Double as argument, cannot make further conversion" << RESET << std::endl;
+			}
+			break;
+		case (4) :
+			convert.ConvertToChar(argv[1]);
+			break;
 	}
 
 }
