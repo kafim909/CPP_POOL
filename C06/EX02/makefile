@@ -1,9 +1,9 @@
-SRCS		=	main.cpp A.Class.cpp B.Class.cpp C.Class.cpp Base.Class.cpp
+SRCS		=	main.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
 NAME		=	Dynamic
 
-CC					=	g++
+CC					=	c++
 CFLAGS				=	-Wshadow -Wall -Wextra -Werror -fsanitize=address -std=c++98\
 
 all:		$(NAME)

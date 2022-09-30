@@ -3,6 +3,7 @@
 #include "B.Class.hpp"
 #include "A.Class.hpp"
 #include "random"
+#include "time.h"
 
 void	tryA(Base *p)
 {
@@ -117,6 +118,7 @@ Base *generate(void)
 
 int main()
 {
+
 	std::cout << std::endl;
 	Base *ptr;
 	ptr = generate();

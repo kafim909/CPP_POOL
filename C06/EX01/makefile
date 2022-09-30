@@ -3,7 +3,7 @@ OBJS		=	$(SRCS:%.cpp=%.o)
 
 NAME		=	Serialize
 
-CC					=	g++
+CC					=	c++
 CFLAGS				=	-Wshadow -Wall -Wextra -Werror -fsanitize=address -std=c++98\
 
 all:		$(NAME)

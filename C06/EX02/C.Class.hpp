@@ -5,16 +5,6 @@
 # include <iostream>
 # include "Base.Class.hpp"
 
-class C : public Base
-{
-
-    public:
-
-        C();
-        ~C();
-
-    private:
-
-};
+class C : public Base{};
 
 #endif

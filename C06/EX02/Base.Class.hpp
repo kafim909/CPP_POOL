@@ -16,14 +16,8 @@
 
 class Base
 {
-
     public:
-
-        Base();
-        virtual ~Base();
-
-    private:
-
+        virtual ~Base() {};
 };
 
 #endif

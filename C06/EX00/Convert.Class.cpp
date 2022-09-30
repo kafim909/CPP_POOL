@@ -130,6 +130,22 @@ bool	cmp(const char *input)
 	return (false);
 }
 
+std::string formatOutputFloat(std::string input)
+{
+	if (input.length() < 6)
+		return (".0f");
+	else
+		return ("f");
+}
+
+std::string formatOutputDouble(std::string input)
+{
+	if (input.length() < 6)
+		return (".0");
+	else
+		return ("");
+}
+
 void	Convert::ConvertToInt(const char *input)
 {
 	int tmp =  stoi(static_cast<std::string>(input));
@@ -143,8 +159,8 @@ void	Convert::ConvertToInt(const char *input)
 	else
 		std::cout << "char   : impossible" << std::endl;
 	std::cout << "int    : " << tmp << std::endl;
-	std::cout << "Float  : " << static_cast<float>(tmp) << ".0f" << std::endl;
-	std::cout << "Double : " << static_cast<double>(tmp) << ".0" << std::endl;
+	std::cout << "Float  : " << static_cast<float>(tmp) << formatOutputFloat(static_cast<std::string>(input)) << std::endl;
+	std::cout << "Double : " << static_cast<double>(tmp) << formatOutputDouble(static_cast<std::string>(input)) << std::endl;
 }
 
 void	Convert::ConvertToFloat(const char *input)
