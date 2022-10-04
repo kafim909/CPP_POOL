@@ -28,8 +28,13 @@ class Span
         Span &operator=(const Span& op);
         ~Span();
 
-		const unsigned int getMaxSize() const;
-		void	addNumber(const int num);
+		const unsigned int 	getMaxSize() const;
+		const unsigned int 	getSize() const;
+		void				addNumber(const unsigned int num);
+		void				addBunch(const unsigned int num);
+		void				printElements();
+		const std::vector<int>	&getVector() const;
+
 
 		class exceedSize : public std::exception{
 			public :
@@ -40,10 +45,8 @@ class Span
 				virtual const void what() throw();
 		};
 
-		const int	longuestSpan();
-		const int 	shortestSpan();
-
-
+		const unsigned int	longestSpan();
+		const unsigned int 	shortestSpan();
 
     private:
 		const unsigned int	_maxSize;
