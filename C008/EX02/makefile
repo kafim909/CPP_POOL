@@ -1,7 +1,7 @@
-SRCS		=	main.cpp Span.Class.cpp
+SRCS		=	main.cpp MutantStack.Class.cpp
 OBJS		=	$(SRCS:%.cpp=%.o)
 
-NAME		=	span
+NAME		=	MutantStack
 
 CC					=	c++
 CFLAGS				=	-Wshadow -Wall -Wextra -Werror -fsanitize=address -std=c++98\
